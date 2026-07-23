@@ -4,7 +4,9 @@ function App() {
 
   return (
     <>
-hello
+<nav className="h-25 w-full bg-[#00000085]">
+
+</nav>
     </>
   )
 }
