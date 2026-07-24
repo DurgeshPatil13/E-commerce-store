@@ -1,13 +1,15 @@
 
-
+import Banner from "./components/Banner"
+import Categories from "./components/Categories"
+import Navbar from "./components/Navbar"
 function App() {
 
   return (
-    <>
-<nav className="h-25 w-full bg-[#00000085]">
-
-</nav>
-    </>
+    <div className="">
+<Navbar/>
+<Banner/>
+<Categories/>
+    </div>
   )
 }
 
