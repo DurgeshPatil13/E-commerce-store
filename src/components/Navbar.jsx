@@ -3,7 +3,7 @@ import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoIosSearch } from "react-icons/io";
-
+import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
 <nav className='p-3 sticky top-0 gap-3 w-full flex justify-between bg-[#000000f5]'>
@@ -18,7 +18,7 @@ const Navbar = () => {
 <input type="text" placeholder='🔍 Search for products'  className='w-250 pl-3 bg-white rounded-2xl  border-blue-300 border-2 outline-none '/>
 {/* cart whislist */}
 <div className='text-white justify-between gap-4  flex lg:text-3xl text-2xl mt-1'>
-<FaRegHeart  />
+<Link to='/Favourites'><FaRegHeart  /></Link> 
 <AiOutlineShoppingCart />
 
 </div>
