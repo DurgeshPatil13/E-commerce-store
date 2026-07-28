@@ -8,7 +8,10 @@ let btn=[];
 for(let i=1;i<=totalpages;i++){
     btn.push(
     <button
-  onClick={() => setcurrent(i)}
+  onClick={() => 
+    
+    setcurrent(i)
+  }
   className={`${i === current ? "bg-red-400" : "bg-red-600"} px-3 py-2 rounded-xl text-white`}
 >
   {i}

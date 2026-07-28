@@ -5,7 +5,7 @@ import Categories from "../components/Categories"
 import Navbar from "../components/Navbar"
 import Pagination from '../components/Pagination'
 
-const Home = ({products,state,loading,totalpages,current,setcurrent,content}) => {
+const Home = ({state,loading,totalpages,current,setcurrent,content}) => {
   return (
     <div className="">
 <Navbar/>

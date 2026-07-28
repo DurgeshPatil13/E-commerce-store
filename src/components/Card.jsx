@@ -2,8 +2,7 @@ import React from 'react'
 import { MdCurrencyRupee } from "react-icons/md";
 import { FaCartArrowDown } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
-import { Links } from 'react-router';
-
+import { FaRegHeart } from "react-icons/fa6";
 
 
 const Card = ({pro}) => {
@@ -12,7 +11,9 @@ const Card = ({pro}) => {
   <Link to={`/details/${pro.id}`}>
 <div className="bg-white h-90  rounded-xl shadow-md p-4 flex flex-col justify-between hover:shadow-xl transition duration-300">
   {/* Product Image */}
-<div className="h-45 w-full overflow-hidden rounded-lg bg-gray-100">
+<div className="h-45 w-full z-5 relative overflow-hidden rounded-lg bg-gray-100">
+<button className=''><FaRegHeart  className='absolute top-2 text-xl hover:text-[#ff55a1] font-bold left-[90%]' /></button>  
+
   <img
     src={pro.thumbnail}
     alt="Product"

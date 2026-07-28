@@ -13,3 +13,7 @@ export const getProductBycategory = async (categorytype) => {
 const response = await api.get(`/products/category/${categorytype}`);
 return response.data.products;
 }
+export const searchproducts = async (query) => {
+  const response=await api.get(`/products/${query}`)
+  return response.data;
+}

@@ -6,7 +6,7 @@ import { IoIosSearch } from "react-icons/io";
 import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
-<nav className='p-3 sticky top-0 gap-3 w-full flex justify-between bg-[#000000f5]'>
+<nav className='p-3 z-10 sticky top-0 gap-3 w-full flex justify-between bg-[#000000f5]'>
 {/* logo */}
 <div className='flex text-white '>
 <h1 className='lg:text-3xl sm:text-2xl text-xl font-semibold'>

@@ -1,7 +1,24 @@
 import { MdCurrencyRupee } from "react-icons/md";
 import { FaStar, FaHeart } from "react-icons/fa";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { searchproducts } from "../services/productapi";
 
 const Detail = ({ product }) => {
+  const[search,setsearch]=useState({})
+  const {id}=useParams()
+  console.log(id);
+
+  useEffect(()=>{
+async function searchresult() {
+  const data=await searchproducts(id);
+ 
+  setsearch(data);
+console.log(data);
+}
+searchresult();
+ 
+  },[id])
   return (
     <div className="min-h-screen bg-[#0f172a] text-white">
 
@@ -13,8 +30,8 @@ const Detail = ({ product }) => {
 
           <div className="bg-white rounded-xl p-8">
             <img
-              src="https://images.unsplash.com/photo-1778880984258-3427fc69f1a9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8"
-              className="w-full h-122.5 object-contain"
+              src={search.thumbnail}
+              className="w-full h-122.5 object-cover"
             />
           </div>
 
@@ -24,7 +41,7 @@ const Detail = ({ product }) => {
 
             <h1 className="text-4xl font-bold">
            {/* title */}
-           Title
+           {search.title}
             </h1>
 
             <div className="flex items-center gap-3 mt-4">
@@ -33,12 +50,14 @@ const Detail = ({ product }) => {
 
               <span>
          {/* rating */}
-4.5
+{search.rating}
               </span>
 
               <span className="text-gray-400">
-                {/* ({product.reviews.length} Reviews) */}
-                (5 reviews)
+                
+                {/* ({search.reviews.length} Reviews)  */}
+                
+        
               </span>
 
             </div>
@@ -48,13 +67,13 @@ const Detail = ({ product }) => {
               <MdCurrencyRupee size={28}/>
 
               <h2 className="text-4xl font-bold">
-                {/* {product.price} */}
-                450
+                {search.price} 
+                
               </h2>
 
               <span className="ml-4 bg-green-500 px-3 py-1 rounded">
-                {/* {product.discountPercentage}% OFF */}
-                20% OFF
+                 {search.discountPercentage}% OFF 
+            
               </span>
 
             </div>
@@ -62,30 +81,30 @@ const Detail = ({ product }) => {
             <div className="mt-8 space-y-3">
 
               <p><b>Brand:</b> 
-              {/* {product.brand} */}
-              New Balance
+              {search.brand} 
+            
               </p>
 
               <p><b>Category:</b> 
-              {/* {product.category} */}
-              Shoe
+               {search.category} 
+             
               </p>
 
-              {/* <p><b>SKU:</b> {product.sku}</p> */}
+               <p><b>SKU:</b> {search.sku}</p> 
 
               <p className="text-green-400">
-                {/* {product.availabilityStatus} */}
-                Available
+                {search.availabilityStatus} 
+           
               </p>
 
               <p>
-                {/* {product.shippingInformation} */}
-Ships in 3-5 business days
+               {search.shippingInformation} 
+
               </p>
 
               <p>
-                {/* {product.warrantyInformation} */}
-1 Week Warranty
+                 {search.warrantyInformation} 
+
               </p>
 
             </div>
@@ -115,8 +134,8 @@ Ships in 3-5 business days
           </h2>
 
           <p className="text-gray-300 leading-8">
-            {/* {product.description} */}
-            The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.
+             {search.description} 
+           
           </p>
 
         </div>
@@ -129,18 +148,18 @@ Ships in 3-5 business days
             Tags
           </h2>
 
-          {/* <div className="flex gap-3">
+       <div className="flex gap-3">
 
-            {product.tags.map(tag=>(
+            {search.tags?.map(tag=>(
               <span
                 key={tag}
                 className="bg-red-500 px-4 py-2 rounded-full"
               >
                 {tag}
               </span>
-            ))}
+            ))} 
 
-          </div> */}
+          </div> 
 
         </div>
 
@@ -154,24 +173,23 @@ Ships in 3-5 business days
 
           <div className="grid md:grid-cols-2 gap-5">
 
-            <div>Weight :10 kg</div>
+            <div>Weight :{search.weight}</div>
 
             <div>
-              {/* Dimensions :
-              {product.dimensions.width} ×
-              {product.dimensions.height} ×
-              {product.dimensions.depth} */}
-              very big
+               Dimensions :
+               {search.dimensions?.width} x  {search.dimensions?.height} x 
+ {search.dimensions?.depth}  
+            
             </div>
 
             <div>
-              Minimum Order :5
-              {/* {product.minimumOrderQuantity} */}
+        
+             {search.minimumOrderQuantity} 
             </div>
 
             <div>
-              Return Policy :1 week
-              {/* {product.returnPolicy} */}
+            
+             {search.returnPolicy} 
             </div>
 
           </div>
@@ -186,9 +204,9 @@ Ships in 3-5 business days
             Customer Reviews
           </h2>
 
-          {/* <div className="space-y-5">
+           <div className="space-y-5">
 
-            {product.reviews.map((review,index)=>(
+            {search.reviews?.map((review,index)=>(
               <div
                 key={index}
                 className="bg-slate-800 p-5 rounded-xl"
@@ -207,9 +225,9 @@ Ships in 3-5 business days
                 </p>
 
               </div>
-            ))}
+            ))} 
 
-          </div> */}
+          </div> 
 
         </div>
 
