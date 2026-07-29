@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { searchproducts } from "../services/productapi";
 
 const Detail = ({ product }) => {
+  
   const[search,setsearch]=useState({})
   const {id}=useParams()
   console.log(id);

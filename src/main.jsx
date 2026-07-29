@@ -7,6 +7,7 @@ import Home from './Pages/Home.jsx'
 import Detail from './Pages/Detail.jsx'
 import Favourites from './Pages/Favourites.jsx'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Contextprovider } from './services/Context.jsx'
 const router=createBrowserRouter([
   {
     path:"/",
@@ -23,9 +24,9 @@ const router=createBrowserRouter([
 ])
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}>
-          <App />
-    </RouterProvider>
+   <Contextprovider>
+    <RouterProvider router={router} />
+</Contextprovider>
 
   </StrictMode>,
 )
