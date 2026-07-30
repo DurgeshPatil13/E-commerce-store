@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-
+import Cart from './Pages/Cart.jsx'
 import Home from './Pages/Home.jsx'
 import Detail from './Pages/Detail.jsx'
 import Favourites from './Pages/Favourites.jsx'
@@ -21,6 +21,10 @@ const router=createBrowserRouter([
     path:"/favourites",
     element:<Favourites/>
   },
+  {
+    path:"/cart",
+    element:<Cart/>
+  }
 ])
 createRoot(document.getElementById('root')).render(
   <StrictMode>
