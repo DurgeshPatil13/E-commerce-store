@@ -3,7 +3,8 @@ import { FaStar, FaHeart } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { searchproducts } from "../services/productapi";
-
+import { Link } from "react-router-dom";
+import { IoArrowBackOutline } from "react-icons/io5";
 const Detail = ({ product }) => {
   
   const[search,setsearch]=useState({})
@@ -22,7 +23,7 @@ searchresult();
   },[id])
   return (
     <div className="min-h-screen bg-[#0f172a] text-white">
-
+ <Link to="/"><IoArrowBackOutline className='absolute top-2 left-4 text-2xl md:text-3xl' /></Link>   
       <div className="max-w-7xl mx-auto p-8">
 
         <div className="grid lg:grid-cols-2 gap-12">

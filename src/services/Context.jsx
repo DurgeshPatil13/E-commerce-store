@@ -26,7 +26,28 @@ function likeset(product) {
     return updated;
   });
 }
-return <LikeContext.Provider value={{like,setlike,likeset}}>
+const[cart,setcart]=useState(()=>{
+  const saved=localStorage.getItem("cartproduct")
+  if(saved){
+        return JSON.parse(saved);
+  }
+      return [];
+})
+function setcartitem(product){
+setcart((prev)=>{
+  const exist=prev.some((item)=>item.id===product.id)
+if(exist){
+  return prev
+}
+const added=[...prev,product];
+console.log(product.id)
+  localStorage.setItem("cartproduct", JSON.stringify(added));
+  return added
+})
+
+
+}
+return <LikeContext.Provider value={{like,setlike,likeset,setcart,setcartitem,cart}}>
     {children}
 </LikeContext.Provider>
 }

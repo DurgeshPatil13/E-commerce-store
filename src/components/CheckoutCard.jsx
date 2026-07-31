@@ -5,6 +5,7 @@ const CheckoutCard = () => {
 
   return (
     <div className="w-full  rounded-2xl bg-linear-to-b from-pink-500 to-pink-700 p-5 text-white shadow-xl">
+
       {/* Subtotal */}
       <div className="flex justify-between items-center text-sm font-medium">
         <span>Subtotal</span>

@@ -9,6 +9,7 @@ import { BsCurrencyDollar } from "react-icons/bs";
 
 const Card = ({pro}) => {
 const {likeset}=useContext(LikeContext);
+const {setcartitem}=useContext(LikeContext);
  return(
   <Link to={`/details/${pro.id}`}>
 <div className="bg-white h-90  rounded-xl shadow-md p-4 flex flex-col justify-between hover:shadow-xl transition duration-300">
@@ -17,7 +18,7 @@ const {likeset}=useContext(LikeContext);
 <button className=''><FaRegHeart onClick={(e)=>{
 e.preventDefault();
 likeset(pro);
-}}  className='absolute top-2 text-xl hover:text-[#ff55a1] font-bold left-[90%]' /></button>  
+}}  className='absolute top-2 text-xl hover:text-[#ff55a1] font-bold left-[85%] sm:left-[90%]' /></button>  
 
   <img
     src={pro.thumbnail}
@@ -45,7 +46,10 @@ likeset(pro);
   </div>
 
   {/* Button */}
-  <button className="w-full flex gap-2 items-center justify-center border-2 border-black rounded-lg py-2 font-medium hover:bg-black hover:text-white transition">
+  <button onClick={((e)=>{
+e.preventDefault(pro);
+setcartitem(pro)
+  })} className="w-full flex gap-2 items-center justify-center border-2 border-black rounded-lg py-2 font-medium hover:bg-black hover:text-white transition">
     Add to Cart <FaCartArrowDown  />
 
   </button>
