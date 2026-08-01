@@ -44,7 +44,7 @@ setcart((prev)=>{
 if(exist){
   return prev
 }
-const added=[...prev,product];
+const added=[...prev,{...product,quantity:1}];
 console.log(product.id)
   localStorage.setItem("cartproduct", JSON.stringify(added));
   return added
@@ -61,9 +61,26 @@ function deletecartitem(pro){
 
 }
 // for quanitity
-const [quantity,setquantity]=useState(1)
-console.log(quantity)
-return <LikeContext.Provider value={{like,quantity,setquantity,deletecartitem,setlike,likeset,setcart,setcartitem,cart}}>
+
+function increasequantity(pro) {
+  setcart((prev) =>
+    prev.map((item) =>(
+            item.id === pro.id && item.quantity < 5
+        ? { ...item, quantity: item.quantity + 1}
+        : item
+      )  )
+  );
+}
+function decreasequantity(pro) {
+  setcart((prev) =>
+    prev.map((item) =>(
+      item.id === pro.id && item.quantity > 1
+        ? { ...item, quantity: item.quantity - 1 }
+        : item
+      )  )
+  );
+}
+return <LikeContext.Provider value={{like,decreasequantity,increasequantity,deletecartitem,setlike,likeset,setcart,setcartitem,cart}}>
     {children}
 </LikeContext.Provider>
 }

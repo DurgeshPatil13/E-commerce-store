@@ -10,13 +10,19 @@ const [productslist , setproductslist]=useState([])
 const [category,setcategory]=useState("")
 const [loading,setloading]=useState(false)
 const [current,setcurrent]=useState(1);
-
+const [search, setSearch] = useState("");
 
 const dataperpage=8;
-let totalpages=Math.ceil(productslist.length/dataperpage);
-let lastidx=current*dataperpage;
-let firstidx=lastidx-dataperpage;
-let content=productslist.slice(firstidx,lastidx)
+const filteredProducts = productslist.filter((product) =>
+  product.title.toLowerCase().startsWith(search.toLowerCase())
+);
+
+let totalpages = Math.ceil(filteredProducts.length / dataperpage);
+
+let lastidx = current * dataperpage;
+let firstidx = lastidx - dataperpage;
+
+let content = filteredProducts.slice(firstidx, lastidx);
 
 useEffect(()=>{
 const get =async function cards() {
@@ -38,7 +44,8 @@ get()
 
 console.log(productslist)
   return (
-<Home content={content} current={current} setcurrent={setcurrent} totalpages={totalpages} loading={loading} state={setcategory} products={productslist}/>
+<Home content={content} current={current} setcurrent={setcurrent} totalpages={totalpages} loading={loading} state={setcategory}   search={search}
+  setSearch={setSearch}/>
   )
 }
 

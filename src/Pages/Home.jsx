@@ -5,10 +5,10 @@ import Categories from "../components/Categories"
 import Navbar from "../components/Navbar"
 import Pagination from '../components/Pagination'
 
-const Home = ({state,loading,totalpages,current,setcurrent,content}) => {
+const Home = ({state,search,setSearch,loading,totalpages,current,setcurrent,content}) => {
   return (
     <div className="">
-<Navbar/>
+<Navbar search={search} setSearch={setSearch}/>
 <Banner/>
 <Categories state={state} />
 <h3 className="text-white text-3xl mt-4 ml-4">

@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { FaTrashAlt } from "react-icons/fa";
 import { LikeContext } from '../services/Context';
 const Cartcomp = ({pro}) => {
-  const{deletecartitem,quantity,setquantity}=useContext(LikeContext)
+  const{deletecartitem,increasequantity,decreasequantity}=useContext(LikeContext)
   return (
      <div className="w-full mb-3 bg-[#1b1b1b] border p-4 border-zinc-700 rounded-2xl  flex items-center gap-4 hover:border-zinc-500 transition-all">
       {/* Product Image */}
@@ -36,26 +36,22 @@ deletecartitem(pro);
         <div className="flex items-center justify-between mt-4 flex-wrap gap-3">
           {/* Quantity */}
           <div className="flex items-center bg-[#111] border border-zinc-700 rounded-full overflow-hidden">
-            <button onClick={(()=>{
-             setquantity(quantity>1?quantity-1:1)
-            })}  className="px-3 py-1 text-red-500 hover:bg-zinc-800 transition">
+            <button onClick={()=>decreasequantity(pro)}  className="px-3 py-1 text-red-500 hover:bg-zinc-800 transition">
               −
             </button>
 
             <span className="px-3 text-white font-medium">
-          {quantity}
+          {pro.quantity}
             </span>
 
-            <button onClick={(()=>{
-              setquantity(quantity<5?quantity+1:quantity)
-            })}  className="px-3 py-1 text-white hover:bg-zinc-800 transition">
+            <button onClick={()=>increasequantity(pro)}  className="px-3 py-1 text-white hover:bg-zinc-800 transition">
               +
             </button>
           </div>
 
           {/* Price */}
           <h3 className="text-white font-bold text-lg">
-  $  {(quantity*Number(pro.price)).toFixed(2)}
+$ {(pro.price * pro.quantity).toFixed(2)}
           </h3>
         </div>
       </div>

@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { LikeContext } from "../services/Context";
 
 const CheckoutCard = () => {
+const {cart}=useContext(LikeContext)
+   
+  const total= cart.reduce((acc,item)=>{
+return acc+item.price*item.quantity;
 
-
+   },0)
+      
   return (
     <div className="w-full  rounded-2xl bg-linear-to-b from-pink-500 to-pink-700 p-5 text-white shadow-xl">
 
       {/* Subtotal */}
-      <div className="flex justify-between items-center text-sm font-medium">
-        <span>Subtotal</span>
-        <span>$1000</span>
-      </div>
 
       {/* Taxes */}
       <div className="flex justify-between items-center mt-1 text-xs text-pink-100">
@@ -24,7 +26,7 @@ const CheckoutCard = () => {
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">Total</h2>
         <h2 className="text-2xl font-bold">
-          $1000
+    ${total.toFixed(0)}
         </h2>
       </div>
 
