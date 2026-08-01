@@ -11,6 +11,7 @@ const [like, setlike] = useState(() => {
 
     return [];
   });
+  // like items
 function likeset(product) {
   setlike((prev) => {
     const exist = prev.some((pro) => pro.id === product.id);
@@ -26,11 +27,15 @@ function likeset(product) {
     return updated;
   });
 }
+
+// cart delete
 const[cart,setcart]=useState(()=>{
   const saved=localStorage.getItem("cartproduct")
   if(saved){
         return JSON.parse(saved);
+ 
   }
+         
       return [];
 })
 function setcartitem(product){
@@ -47,7 +52,18 @@ console.log(product.id)
 
 
 }
-return <LikeContext.Provider value={{like,setlike,likeset,setcart,setcartitem,cart}}>
+function deletecartitem(pro){
+  setcart((prev)=>{
+    const deleteitem=prev.filter((item)=>item.id!==pro.id)
+    localStorage.setItem("cartproduct",JSON.stringify(deleteitem))
+    return deleteitem;
+  })
+
+}
+// for quanitity
+const [quantity,setquantity]=useState(1)
+console.log(quantity)
+return <LikeContext.Provider value={{like,quantity,setquantity,deletecartitem,setlike,likeset,setcart,setcartitem,cart}}>
     {children}
 </LikeContext.Provider>
 }

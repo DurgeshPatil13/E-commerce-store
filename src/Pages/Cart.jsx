@@ -10,6 +10,7 @@ import { LikeContext } from '../services/Context';
 
 const Cart = () => {
     const {cart}=useContext(LikeContext)
+    console.log(cart)
   return (
     <div className='p-3'>
        <nav className='border-b-2 border-[#3c3c3c] p-3 z-10 sticky top-0 gap-3 w-full flex justify-between bg-[#000000f5]'>
@@ -30,7 +31,7 @@ const Cart = () => {
        </div>
        </nav> 
        <div className='w-full mt-6 mb-2 pl-4 text-lg sm:text-2xl font-semibold text-[#a5a5a5]'>
-        Your Cart ({} items)
+        Your Cart ({cart.length} items)
        </div> 
        <div className='w-full '>
 
