@@ -22,7 +22,7 @@ searchresult();
  
   },[id])
   return (
-    <div className="min-h-screen bg-[#0f172a] text-white">
+    <div className="min-h-screen bg-[#0e1627] text-gray-300">
  <Link to="/"><IoArrowBackOutline className='absolute top-2 left-4 text-2xl md:text-3xl' /></Link>   
       <div className="max-w-7xl mx-auto p-8">
 
