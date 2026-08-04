@@ -19,7 +19,7 @@ const Home = ({ state, search, setSearch, loading, totalpages, current, setcurre
  
       {loading ? (
         <div className="flex justify-center items-center h-96">
-          <div className="w-10 h-10 rounded-full border-4 border-[#2a3145] border-t-[#ff4d6d] animate-spin"></div>
+          <div className="w-10 h-10 rounded-full border-4 border-[#282e40] border-t-[#ff4d6d] animate-spin"></div>
         </div>
       ) : (
         <div className="grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3 sm:gap-5 lg:gap-6 p-4 sm:p-6">
