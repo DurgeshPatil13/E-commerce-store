@@ -19,7 +19,7 @@ const Favourites = () => {
       </div>
  
       {(!like || like.length === 0) ? (
-        <p className='text-[#8b93a7] text-center py-20'>No favorites yet — tap the heart on a product to save it here.</p>
+        <p className='text-[#959eb5] text-center py-20'>No favorites yet — tap the heart on a product to save it here.</p>
       ) : (
         <div className="grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3 sm:gap-5 lg:gap-6 p-4 sm:p-6">
           {like.map((pro) => (
