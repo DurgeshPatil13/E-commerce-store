@@ -9,7 +9,7 @@ const Favourites = () => {
  
   return (
     <div className='min-h-screen w-full bg-[#0c0f1a]'>
-      <div className='relative border-b border-[#2a3145] p-4 sm:p-5 flex items-center justify-center'>
+      <div className='relative border-b border-[#343e57] p-4 sm:p-5 flex items-center justify-center'>
         <Link to="/" className='absolute left-4 sm:left-6'>
           <IoArrowBackOutline className='text-white text-2xl hover:text-[#ff4d6d] transition-colors' />
         </Link>
